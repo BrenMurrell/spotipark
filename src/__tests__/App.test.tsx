@@ -4,6 +4,6 @@ import App from '../App'
 describe('App', () => {
   it('renders the App component', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { level: 1})).toHaveTextContent('Vite + React');
+    expect(screen.getByRole('heading', { level: 1}).textContent).toBe('Vite + React');
   })
 })
