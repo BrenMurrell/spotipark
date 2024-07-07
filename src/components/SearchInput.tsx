@@ -10,7 +10,8 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
     useEffect(() => {
         // only run search after user stops typing for 1 second
         const timer = setTimeout(() => {
-            onSearch(queryString);
+            queryString && onSearch(queryString);
+            !queryString && onSearch('');
         }, 1000);
 
         // use useEffect callback to clear timer (resets timer on every keypress)
