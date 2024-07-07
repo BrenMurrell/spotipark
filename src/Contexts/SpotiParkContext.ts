@@ -7,5 +7,5 @@ interface SpotiParkContextProps {
     setSearchResults: React.Dispatch<React.SetStateAction<SearchResults<["track"]> | null>>;
 }
 
-export const SpotiParkContext = createContext<SpotiParkContextProps | undefined>(undefined);
+export const SpotiParkContext = createContext<SpotiParkContextProps | null>(null);
 
