@@ -1,16 +1,22 @@
+@import url("https://use.typekit.net/dxf8lql.css");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "proxima-nova", Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 400; /* 500 and 700 availble too */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  --color-primary: #00b2d0;
+  --color-primary-active: #0084a5;
+  --color-fg: #384450;
+  --color-bg: #f1f5f9;
+  color: var(--color-fg);
+  background-color: var(--color-bg);
 }
 
 a {
@@ -24,8 +30,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -33,6 +37,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--color-primary)
 }
 
 button {
@@ -54,7 +59,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -65,4 +70,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
