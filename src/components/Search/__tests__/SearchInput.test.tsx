@@ -4,9 +4,9 @@ import userEvent from '@testing-library/user-event';
 import { act } from "react";
 import { vi } from "vitest"
 
-// vi.spyOn(global, 'setTimeout');
+vi.spyOn(global, 'setTimeout');
 
-const mockOnUpdate = () => vi.fn();
+const mockOnUpdate = vi.fn();
 
 const user = userEvent.setup();
 
@@ -25,21 +25,16 @@ describe('SearchInput', () => {
     it('runs onSearch when the user types', async () => {
         render(<SearchInput onSearch={mockOnUpdate} />);
         const searchField = screen.getByRole('textbox');
-        expect(searchField).toHaveValue('');
+        expect(searchField.textContent).toBe('');
         act(() => {
             user.type(searchField, 'hello');
         });
 
-        // TODO: fix the following - this is how i'd normally do it with jest
-        // but doesnt' work QUITE the same with vitest
-        
-        // await waitFor(() => {
-        //     expect(searchField).toHaveValue('hello');
-        // });
+        await waitFor(() => {
+            expect(screen.getByRole('textbox')).toHaveValue('hello');
+        });
 
-        // await waitFor(() => {
-        //     expect(mockOnUpdate).toHaveBeenCalledWith('hello');
-        // });
+        //TODO - assert the function was called
     });
 
 

@@ -27,7 +27,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
 
     return (
         <div>
-            <input type="text" value={queryString} onChange={handleInputChange} />
+            <input placeholder="Search for a track" type="text" value={queryString} onChange={handleInputChange} />
         </div>
     );
 };

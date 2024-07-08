@@ -17,6 +17,7 @@
   --color-bg: #f1f5f9;
   color: var(--color-fg);
   background-color: var(--color-bg);
+  box-sizing: border-box;
 }
 
 a {
@@ -32,6 +33,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 1rem;
 }
 
 h1 {

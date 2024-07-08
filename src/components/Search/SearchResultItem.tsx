@@ -1,5 +1,6 @@
 import { Track } from "@spotify/web-api-ts-sdk";
 import React from 'react';
+import Button from "../common/Button";
 
 interface SearchResultItemProps {
     result: Track
@@ -8,6 +9,11 @@ interface SearchResultItemProps {
 const SearchResultItem: React.FC<SearchResultItemProps> = ({ result }) => {
     const imageUrl = result.album.images[2].url;
     const { name, artists } = result;
+
+    const addToPlaylist = () => {
+        console.log('add to playlist');
+    }
+
     return (
         <div className="search-result">
             <div className="search-result__image">
@@ -22,7 +28,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({ result }) => {
                 </p>
             </div>
             <div className="search-result__actions">
-                <button>Add to playlist</button>
+                <Button label="Add to playlist" onClick={addToPlaylist}/>
             </div>
         </div>
     );

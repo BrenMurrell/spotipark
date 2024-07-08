@@ -18,7 +18,11 @@ const SpotiPark: React.FC = () => {
 
     return sdk && (
         <>
-            <h2>Succesfully logged in to SpotiPark</h2>
+            <h2>Welcome to SpotiPark</h2>
+            <p>
+                Today we're going to create a new Top 20 playlist and add some songs to it
+                based on your search results. Let's get started.
+            </p>
             <SearchInput onSearch={(queryString) => onSearch(queryString)} />
             <SearchResultsList />
             { userProfile && <PlaylistsList /> }
