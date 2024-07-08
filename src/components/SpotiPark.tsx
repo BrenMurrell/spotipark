@@ -1,16 +1,13 @@
-import { SearchResults, SpotifyApi } from "@spotify/web-api-ts-sdk";
-import React, { Dispatch, SetStateAction } from 'react';
-import SearchInput from "./SearchInput";
+import React, { useContext } from 'react';
+import SearchInput from "./Search/SearchInput";
 import { searchTracks } from "../api/spotifyApi";
-import SearchResultsList from "./SearchResultsList";
+import SearchResultsList from "./Search/SearchResultsList";
+import PlaylistsList from "./PlaylistsList";
+import { SpotiParkContext } from "../Contexts/SpotiParkContext";
 
-interface SpotiParkProps {
-    sdk?: SpotifyApi
-    searchResults?: SearchResults<["track"]> | null;
-    setSearchResults: Dispatch<SetStateAction<SearchResults<["track"]> | null>>;
-}
-
-const SpotiPark: React.FC<SpotiParkProps> = ({ sdk, searchResults, setSearchResults }) => {
+const SpotiPark: React.FC = () => {
+    const context = useContext(SpotiParkContext);
+    const { sdk, setSearchResults, userProfile } = context!;
 
     const onSearch = async (queryString: string) => {
         if(queryString) {
@@ -24,6 +21,7 @@ const SpotiPark: React.FC<SpotiParkProps> = ({ sdk, searchResults, setSearchResu
             <h2>Succesfully logged in to SpotiPark</h2>
             <SearchInput onSearch={(queryString) => onSearch(queryString)} />
             <SearchResultsList />
+            { userProfile && <PlaylistsList /> }
         </>
     );
 };

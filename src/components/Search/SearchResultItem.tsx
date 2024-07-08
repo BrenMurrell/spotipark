@@ -1,6 +1,5 @@
 import { Track } from "@spotify/web-api-ts-sdk";
 import React from 'react';
-// import './SearchResultItem.css';
 
 interface SearchResultItemProps {
     result: Track

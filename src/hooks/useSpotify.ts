@@ -5,7 +5,6 @@ export function useSpotify(clientId: string, redirectUrl: string, scopes: string
 
     const [sdk, setSdk] = useState<SpotifyApi | null>(null);
     const { current: activeScopes } = useRef(scopes);
-
     useEffect(() => {
         (async () => {
             const auth = new AuthorizationCodeWithPKCEStrategy(clientId, redirectUrl, activeScopes);

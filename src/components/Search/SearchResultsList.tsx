@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { SpotiParkContext } from '../Contexts/SpotiParkContext';
+import { SpotiParkContext } from '../../Contexts/SpotiParkContext';
 import SearchResultItem from "./SearchResultItem";
 import './SearchResults.css';
 
